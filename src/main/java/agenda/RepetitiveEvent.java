@@ -24,13 +24,11 @@ public class RepetitiveEvent extends Event {
 	
 	private ChronoUnit frequency ;
 	
-	private ArrayList<Event> listEvent ;
 	
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
         // TODO : implémenter cette méthode
         this.frequency=frequency ;
-        this.listEvent = new ArrayList<>() ;
        
     }
 
@@ -51,6 +49,22 @@ public class RepetitiveEvent extends Event {
     public ChronoUnit getFrequency() {
         // TODO : implémenter cette méthode
     	return this.frequency ;
+    }
+    
+    
+    public String getFrequencyS(){
+        if(this.frequency == ChronoUnit.DAYS){
+            return "days";
+        }
+        if(this.frequency == ChronoUnit.WEEKS){
+            return "weeks";
+        }
+        if(this.frequency == ChronoUnit.MONTHS){
+            return "months";
+        }
+        else{
+            return "0";
+        }
     }
 
 }

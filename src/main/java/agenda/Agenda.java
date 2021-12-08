@@ -15,7 +15,7 @@ public class Agenda {
      * @param e the event to add
      */
 	
-	private ArrayList<Event> listEvent ;
+	private List<Event> listEvent = new ArrayList();
 	
     public void addEvent(Event e) {
         // TODO : implémenter cette méthode
@@ -28,14 +28,20 @@ public class Agenda {
      * @param day the day toi tes
      * @return and iteraror to the events that occur on that day
      */
-    public List<Event> eventsInDay(LocalDate day) {
+   /* public List<Event> eventsInDay(LocalDate day) {
     	List<Event> list = new ArrayList<Event>() ;
         // TODO : implémenter cette méthode
         for (Event e : this.listEvent) {
         	if (e.isInDay(day)) {
-        		list.add(e);
+                    list.add(e);
         	}
+                if (e.getDuration()
+                    
+            
+                    
+                }
+                
         }
         return list ;
-    }
+    }*/
 }
