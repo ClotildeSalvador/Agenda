@@ -19,7 +19,7 @@ public class Event {
      */
     private Duration myDuration;
 
-
+    
     /**
      * Constructs an event
      *
@@ -41,7 +41,14 @@ public class Event {
      */
     public boolean isInDay(LocalDate aDay) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+    	boolean r = true ;
+    	if (this.myStart.isAfter(LocalDateTime.of(aDay, LocalTime.of(0, 0)))) {
+    		r=false;
+    	}
+    	if (this.myStart.plus(myDuration).isBefore(LocalDateTime.of(aDay, LocalTime.of(0, 0)))) {
+    		r=false;
+    	}
+        return r ;
     }
    
     /**

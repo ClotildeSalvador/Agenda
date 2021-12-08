@@ -1,6 +1,8 @@
 package agenda;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.*;
 
 /**
@@ -12,19 +14,28 @@ public class Agenda {
      *
      * @param e the event to add
      */
+	
+	private ArrayList<Event> listEvent ;
+	
     public void addEvent(Event e) {
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        listEvent.add(e) ;
     }
 
     /**
      * Computes the events that occur on a given day
      *
-     * @param day the day toi test
+     * @param day the day toi tes
      * @return and iteraror to the events that occur on that day
      */
     public List<Event> eventsInDay(LocalDate day) {
+    	List<Event> list = new ArrayList<Event>() ;
         // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+        for (Event e : this.listEvent) {
+        	if (e.isInDay(day)) {
+        		list.add(e);
+        	}
+        }
+        return list ;
     }
 }
