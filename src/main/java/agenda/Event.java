@@ -12,12 +12,12 @@ public class Event {
 	/**
 	 * The starting time of the event
 	 */
-	private LocalDateTime myStart;
+	protected LocalDateTime myStart;
 
 	/**
 	 * The durarion of the event
 	 */
-	private Duration myDuration;
+	protected Duration myDuration;
 
 	/**
 	 * Constructs an event
@@ -39,7 +39,6 @@ public class Event {
 	 * @return true if the event occurs on that day, false otherwise
 	 */
 	public boolean isInDay(LocalDate aDay) {
-		// TODO : implémenter cette méthode
 		boolean r = true;
 		if (this.myStart.isAfter(LocalDateTime.of(aDay, LocalTime.of(0, 0)))) {
 			r = false;
