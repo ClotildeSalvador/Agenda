@@ -40,7 +40,7 @@ public class Event {
 	 */
 	public boolean isInDay(LocalDate aDay) {
 		boolean r = true;
-		if (this.myStart.isAfter(LocalDateTime.of(aDay, LocalTime.of(0, 0)))) {
+		if (this.myStart.isAfter(LocalDateTime.of(aDay, LocalTime.of(23, 59)))) {
 			r = false;
 		}
 		if (this.myStart.plus(myDuration).isBefore(LocalDateTime.of(aDay, LocalTime.of(0, 0)))) {
