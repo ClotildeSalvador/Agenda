@@ -16,7 +16,7 @@ public class Agenda {
 	 * @param e the event to add
 	 */
 
-	private ArrayList<Event> listEvent;
+	private ArrayList<Event> listEvent = new ArrayList<Event>();
 
 	public void addEvent(Event e) {
 		listEvent.add(e);
