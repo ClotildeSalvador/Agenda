@@ -69,5 +69,10 @@ public class Event {
 	public Duration getDuration() {
 		return myDuration;
 	}
+        
+        
+        public String toString(){
+            return "Titre : "+myTitle+" ,duree :"+myDuration+" ,date :"+myStart;
+        }
 
 }
