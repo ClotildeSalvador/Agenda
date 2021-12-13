@@ -66,7 +66,6 @@ public class FixedTerminationEvent extends RepetitiveEvent {
 	public FixedTerminationEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency,
 			long numberOfOccurrences) {
 		super(title, start, duration, frequency);
-		// TODO : implémenter cette méthode
 		this.numberOfOccurrences = numberOfOccurrences;
 		LocalDateTime n = start ; 
 		if (frequency == ChronoUnit.DAYS) {

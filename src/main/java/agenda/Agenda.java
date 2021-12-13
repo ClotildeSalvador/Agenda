@@ -19,7 +19,6 @@ public class Agenda {
 	private ArrayList<Event> listEvent;
 
 	public void addEvent(Event e) {
-		// TODO : implémenter cette méthode
 		listEvent.add(e);
 	}
 
@@ -31,7 +30,6 @@ public class Agenda {
 	 */
 	public List<Event> eventsInDay(LocalDate day) {
 		List<Event> list = new ArrayList<Event>();
-		// TODO : implémenter cette méthode
 		for (Event e : this.listEvent) {
 			if (e.isInDay(day)) {
 				list.add(e);
@@ -39,8 +37,26 @@ public class Agenda {
 		}
 		return list;
 	}
-	
-	/**
+        
+        
+        
+     /**
+     * Trouver les événements de l'agenda en fonction de leur titre
+     * @param title le titre à rechercher
+     * @return les événements qui ont le même titre
+     */
+    public List<Event> findByTitle(String title) {
+        List<Event> trouves = new ArrayList<>();
+        for(Event e : listEvent){
+            if(e.getTitle()==title){
+                trouves.add(e);
+            }
+        }
+        return trouves;
+    }
+    
+    
+    /**
      * Déterminer s’il y a de la place dans l'agenda pour un événement
      * @param e L'événement à tester (on se limitera aux événements simples)
      * @return vrai s’il y a de la place dans l'agenda pour cet événement
