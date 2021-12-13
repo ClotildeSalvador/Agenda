@@ -9,8 +9,7 @@ import java.time.temporal.ChronoUnit;
  */
 public class RepetitiveEvent extends Event {
 
-    
-    
+
     /**
      * Constructs a repetitive event
      *
@@ -25,13 +24,15 @@ public class RepetitiveEvent extends Event {
      * </UL>
      */
     
-	private ArrayList<LocalDate> lesExceptions = new ArrayList<>();
 	private ChronoUnit frequency ;
+	
+	private List<LocalDate> lesExceptions ; 
 	
 	
     public RepetitiveEvent(String title, LocalDateTime start, Duration duration, ChronoUnit frequency) {
         super(title, start, duration);
         this.frequency=frequency ;
+        this.lesExceptions = new ArrayList<>() ;
        
     }
 
@@ -41,8 +42,7 @@ public class RepetitiveEvent extends Event {
      * @param date the event will not occur at this date
      */
     public void addException(LocalDate date) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");
+    	lesExceptions.add(date) ;
     }
     
         public boolean isInDay(LocalDate aDay) {

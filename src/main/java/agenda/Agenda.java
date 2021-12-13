@@ -1,5 +1,6 @@
 package agenda;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
@@ -61,14 +62,48 @@ public class Agenda {
      * @return vrai s’il y a de la place dans l'agenda pour cet événement
      */
     public boolean isFreeFor(Event e) {
-        // TODO : implémenter cette méthode
-        throw new UnsupportedOperationException("Pas encore implémenté");        
+    	boolean r = true ;
+    	
+//    	date de l'evenement
+    	int y = e.getStart().getYear() ;
+    	int m = e.getStart().getMonthValue();
+    	int d = e.getStart().getDayOfMonth();
+    	LocalDate l = LocalDate.of(y, m, d) ;
+//    	heure de l'evenement
+    	int h = e.getStart().getHour() ;
+    	int min = e.getStart().getMinute() ;
+    	LocalTime t = LocalTime.of(h, min) ;
+//    	ev l'evenement existant auquel on compare l'evenement e
+        for (Event ev : this.eventsInDay(l)) {
+//        	recupere l'heure de l'evenement
+        	int hev = ev.getStart().getHour() ;
+        	int minev = ev.getStart().getMinute() ;
+        	LocalTime tev = LocalTime.of(hev, minev) ;
+//        	si le debut de ev est avant celui de e, on regarde si la fin de ev est avant le debut de e
+        	if (tev.isBefore(t)) {
+//        		duree de l'evenement ev existant
+        		Duration dev = ev.getDuration() ;
+        		LocalTime tevfin=tev.plus(dev) ;
+        		if(tevfin.isAfter(t)) {
+        			r=false ;
+        		}
+        	}
+//        	si meme nb de minutes et meme heure = meme temps de debut : r=false
+        	if (hev==h && minev==min) {
+        		r=false ;
+        	}
+//        	si le debut de ev est apres celui de e, on regarde si la fin de e est avant le debut de ev
+        	if (tev.isAfter(t)) {
+//        		duree de l'evenement ev existant
+        		Duration de = e.getDuration() ;
+        		LocalTime tfin=tev.plus(de) ;
+        		if(tfin.isAfter(tev)) {
+        			r=false ;
+        		}
+        	}
+        	
+        }
+        return r ;
     }
-        
-        
-        
-        
-        
-        
 
 }
